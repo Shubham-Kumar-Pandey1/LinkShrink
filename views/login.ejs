@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Main container */
+        .container {
+            display: flex;
+            width: 900px;
+            height: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Left column for the image */
+        .image-column {
+            flex: 1;
+            background: url('https://www.bulkgate.com/wp-content/uploads/2022/05/blog-url-shortener.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Right column for the form */
+        .form-column {
+            flex: 1;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        /* Form header */
+        .form-container h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Form labels and inputs */
+        .form-container label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Submit button */
+        .form-container button {
+            background-color: #2575fc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #6a11cb;
+        }
+
+        /* Link styling */
+        .form-container .signup-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        .form-container .signup-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image Column -->
+        <div class="image-column"></div>
+
+        <!-- Form Column -->
+        <div class="form-column">
+            <div class="form-container">
+                <h3>Login</h3>
+                <form action="/auth/login" method="POST">
+                    <label for="username">Email:</label>
+                    <input type="email" id="username" name="username" placeholder="Enter your email" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+                <a href="/auth/signup" class="signup-link">Don't have an account? Sign up</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

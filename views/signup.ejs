@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        /* Main container */
+        .container {
+            width: 400px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            color: #333;
+        }
+
+        /* Form header */
+        .container h3 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2575fc;
+        }
+
+        /* Form labels and inputs */
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Submit button */
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2575fc;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #6a11cb;
+        }
+
+        /* Link styling */
+        .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Circle design for visual distinction */
+        .circle {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: #fff;
+            border-radius: 50%;
+            top: 10%;
+            right: 10%;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+            z-index: -1;
+        }
+
+        .circle-small {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 50%;
+            bottom: 15%;
+            left: 15%;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="circle-small"></div>
+    <div class="container">
+        <h3>Signup</h3>
+        <form action="/auth/signup" method="POST">
+            <label for="username">Email:</label>
+            <input type="email" id="username" name="username" placeholder="Enter your email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <a href="/auth/login" class="signup-link">Already have an account? Login</a>
+    </div>
+</body>
+</html>
