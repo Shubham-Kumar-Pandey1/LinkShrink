@@ -30,4 +30,3 @@ export const signup = async (username, useremail, userpassword) => {
       throw new Error(error.response?.data?.message || "Signup failed");
     }
   };
-  
