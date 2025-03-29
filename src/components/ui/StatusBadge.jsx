@@ -1,12 +1,15 @@
-const StatusBadge = ({ status }) => {
-    const statusColors = {
-      developed: "badge-success",
-      "in-development": "badge-warning",
-      "coming-soon": "badge-error"
-    };
-  
-    return <span className={`badge w-3 h-3 ${statusColors[status]}`}></span>;
+const StatusBadge = ({ status, label }) => {
+  const statusClasses = {
+    developed: "bg-green-500 text-white",
+    "in-development": "bg-yellow-500 text-black",
+    "coming-soon": "bg-red-500 text-white",
   };
-  
-  export default StatusBadge;
-  
+
+  return (
+    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${statusClasses[status]}`}>
+      {label}
+    </span>
+  );
+};
+
+export default StatusBadge;
