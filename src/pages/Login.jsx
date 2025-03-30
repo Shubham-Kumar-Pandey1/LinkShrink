@@ -23,12 +23,11 @@ function Login() {
     setIsSubmitting(true);
   
     try {
-      const response = await login(useremail, userpassword); // Call login API
+      const response = await login(useremail, userpassword);
       console.log("Login successful:", response);
   
-      const token = Cookies.get("jwt"); // Get JWT from cookies
+      const token = localStorage.getItem("jwt"); // Get JWT from localStorage
       if (token) {
-        localStorage.setItem("jwt", token); // Store JWT in local storage
         navigate("/dashboard"); // Redirect to dashboard
       }
     } catch (err) {
@@ -37,6 +36,7 @@ function Login() {
       setIsSubmitting(false);
     }
   };
+  
   
 
   return (

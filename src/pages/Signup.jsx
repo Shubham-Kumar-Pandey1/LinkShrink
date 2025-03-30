@@ -28,24 +28,24 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setError(""); // Clear previous errors
-
+    setError("");
+  
     try {
       await signup(formData.username, formData.useremail, formData.userpassword);
-      const token = Cookies.get("jwt"); // Get JWT from cookies
-
+      const token = localStorage.getItem("jwt"); 
+  
       if (token) {
-        localStorage.setItem("jwt", token); // Store JWT in local storage
-        navigate("/dashboard"); // Redirect to dashboard
+        navigate("/dashboard"); 
       } else {
-        navigate("/login"); // If no token, redirect to login
+        navigate("/login"); 
       }
     } catch (error) {
-      setError(error.response?.data?.message || "⚠️ User already exists! Please try logging in."); // Display exact server message
+      setError(error.response?.data?.message || "⚠️ User already exists! Please try logging in.");
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
