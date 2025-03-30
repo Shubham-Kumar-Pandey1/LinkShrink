@@ -50,7 +50,7 @@ const Dashboard = () => {
 
     try {
       const response = await shortenUrl(formData);
-      const shortUrl = `http://localhost:8000/${response.shortUrl}`;
+      const shortUrl = `https://url-shortener-server-afo7.onrender.com/${response.shortUrl}`;
       setSuccessMessage(
         `Short URL Created: <a href="${shortUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline">${shortUrl}</a>`
       );

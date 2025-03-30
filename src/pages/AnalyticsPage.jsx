@@ -138,12 +138,12 @@ const AnalyticsPage = () => {
                       <td className="border border-gray-600 px-4 py-2">{link.shortId}</td>
                       <td className="border border-gray-600 px-4 py-2">
                         <a
-                          href={`http://localhost:8000/${link.shortId}`}
+                          href={`https://url-shortener-server-afo7.onrender.com/${link.shortId}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-400 underline hover:text-blue-300"
                         >
-                          http://localhost:8000/{link.shortId}
+                          https://url-shortener-server-afo7.onrender.com/{link.shortId}
                         </a>
                       </td>
                       <td className="border border-gray-600 px-4 py-2 font-bold text-green-400">

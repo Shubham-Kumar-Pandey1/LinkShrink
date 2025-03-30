@@ -90,18 +90,18 @@ const LinksPage = () => {
                     <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{link.clicks}</td>
                     <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
                       <a
-                        href={`http://localhost:8000/${link.shortId}`}
+                        href={`https://url-shortener-server-afo7.onrender.com/${link.shortId}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 dark:text-blue-400 hover:underline"
                       >
-                        http://localhost:8000/{link.shortId}
+                        https://url-shortener-server-afo7.onrender.com/{link.shortId}
                       </a>
                     </td>
                     <td className="border border-gray-300 dark:border-gray-700 px-4 py-2 flex justify-center gap-3">
                       {/* Copy Button */}
                       <button
-                        onClick={() => copyToClipboard(`http://localhost:8000/${link.shortId}`)}
+                        onClick={() => copyToClipboard(`https://url-shortener-server-afo7.onrender.com/${link.shortId}`)}
                         className="btn btn-sm btn-outline dark:border-gray-400 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
                       >
                         <FaCopy />
