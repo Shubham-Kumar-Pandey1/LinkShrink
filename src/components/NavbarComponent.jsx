@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FiHome, FiLink, FiBarChart2, FiLogOut, FiUser } from "react-icons/fi";
+import { FiHome, FiLink, FiBarChart2, FiLogOut, FiUser, FiShield } from "react-icons/fi";
 import { logout } from "../api/auth.js"; 
 import { jwtDecode } from "jwt-decode";
-
 
 const NavbarComponent = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("Loading...");
+  const [role, setRole] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
       try {
-        const decoded = jwtDecode(token); // Decode JWT
-        setUsername(decoded.username || "User"); // Set username
+        const decoded = jwtDecode(token);
+        setUsername(decoded.username || "User");
+        setRole(decoded.role || "user"); // Default to "user" if role is not defined
       } catch (error) {
         console.error("Invalid token", error);
         setUsername("User");
+        setRole("user");
       }
     }
   }, []);
@@ -25,9 +27,8 @@ const NavbarComponent = () => {
   const handleLogout = async () => {
     const success = await logout();
     if (success) {
-      localStorage.removeItem("jwt"); // Clear JWT
-      // Force navigation after logout
-      navigate("/"); 
+      localStorage.removeItem("jwt");
+      navigate("/");
     }
   };
 
@@ -50,10 +51,16 @@ const NavbarComponent = () => {
           <FiLink size={20} />
           Links
         </Link>
-        <Link to="/analytics" className="hover:text-blue-400 transition flex items-center gap-2 ml-4">
+        <Link to="/analytics" className="hover:text-blue-400 transition flex items-center gap-2">
           <FiBarChart2 size={20} />
           Analytics
         </Link>
+        {role === "admin" && (
+          <Link to="/admin-analytics" className="hover:text-blue-400 transition flex items-center gap-2">
+            <FiShield size={20} />
+            Admin Analytics
+          </Link>
+        )}
       </div>
 
       {/* Right Side - User Dropdown */}
